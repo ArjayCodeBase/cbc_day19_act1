@@ -1,0 +1,20 @@
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+prompt             = no
+x509_extensions    = v3_req
+default_md         = sha256
+
+[ req_distinguished_name ]
+C  = US
+ST = State
+L  = City
+O  = Org
+OU = Unit
+CN = localhost
+
+[ v3_req ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = localhost

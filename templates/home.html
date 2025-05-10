@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Home</h2>
+    <p>Logged in as: {{ email }}</p>
+    <a href="{{ url_for('add_info') }}">Add Info</a>
+    <hr>
+
+    {% if infos %}
+      <h3>Your Submitted Info</h3>
+      <ul>
+      {% for info in infos %}
+        <li>
+          <strong>Name:</strong>
+            {{ info.fname }}
+            {% if info.mname %} {{ info.mname }}{% endif %}
+            {{ info.lname }}<br>
+          <strong>Age:</strong> {{ info.age }}<br>
+          <strong>Address:</strong> {{ info.address }}<br>
+          <strong>Birthday:</strong> {{ info.bday }}<br>
+          <em>Submitted at {{ info.submitted_at }}</em>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p><em>No info submitted yet.</em></p>
+    {% endif %}
+  </body>
+</html>
